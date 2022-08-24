@@ -3,20 +3,23 @@ name : Rahul CI
 on: 
   push:
     branches: ["main", "master"]
-  pull_request: ["main", "master"]
+  pull_request: 
+    brandhes: ["main", "master"]
 
   workflow_dispatch:
 
 jobs:
 
   first_job:
+
     runs_on: windows-latest
 
     steps:
+
       - uses: actions/checkout@v3
 
       - name: Run a single line script
-       run: echo This is my first job!
+        run: echo This is my first job!
 
       - name: Run a poly-line script
         run: |
@@ -31,6 +34,6 @@ jobs:
       - uses: actions/checkout@v3
 
       - name: Heres the second job
-      run: |
+        run: |
         echo this is a second job which is created by me,
         echo in the vscode 
