@@ -1,0 +1,36 @@
+name : Rahul CI
+
+on: 
+  push:
+    branches: ["main", "master"]
+  pull_request: ["main", "master"]
+
+  workflow_dispatch:
+
+jobs:
+
+  first_job:
+    runs_on: windows-latest
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Run a single line script
+       run: echo This is my first job!
+
+      - name: Run a poly-line script
+        run: |
+          echo This is first line and,
+          echo This is the second line
+  
+  second_job:
+    runs-on: ubuntu-latest
+
+    steps:
+
+      - uses: actions/checkout@v3
+
+      - name: Heres the second job
+      run: |
+        echo this is a second job which is created by me,
+        echo in the vscode 
