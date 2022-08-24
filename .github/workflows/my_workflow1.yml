@@ -1,10 +1,15 @@
 name : Rahul CI
 
+env:
+  message: "It is written in environment variable"
+  year : 2022
+  web_server: windows-latest
+
 on: 
   push:
     branches: ["main", "master"]
   pull_request: 
-    brandhes: ["main", "master"]
+    branches: ["main", "master"]
 
   workflow_dispatch:
 
@@ -12,14 +17,14 @@ jobs:
 
   first_job:
 
-    runs-on: windows-latest
+    runs-on: self-hosted
 
     steps:
 
       - uses: actions/checkout@v3
 
       - name: Run a single line script
-        run: echo This is my first job!
+        run: echo $message
 
       - name: Run a poly-line script
         run: |
@@ -27,7 +32,7 @@ jobs:
           echo This is the second line
   
   second_job:
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
 
     steps:
 
@@ -36,4 +41,4 @@ jobs:
       - name: Heres the second job
         run: |
           echo this is a second job which is created by me,
-          echo in the vscode 
+          echo year - 2022
